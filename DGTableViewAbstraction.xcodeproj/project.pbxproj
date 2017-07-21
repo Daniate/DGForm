@@ -20,6 +20,9 @@
 		1485A0391F20ABEB00A9C126 /* DGTableViewControllerWithTableViewAbstraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1485A0381F20ABEB00A9C126 /* DGTableViewControllerWithTableViewAbstraction.m */; };
 		1485A03D1F20B5AB00A9C126 /* DGViewControllerWithTableViewAbstraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1485A03C1F20B5AB00A9C126 /* DGViewControllerWithTableViewAbstraction.m */; };
 		149D7D4A1F21D0AC005866AA /* UIViewController+DGTableViewAbstraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 149D7D491F21D0AC005866AA /* UIViewController+DGTableViewAbstraction.m */; };
+		149D7D4D1F21F98F005866AA /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 149D7D4C1F21F98F005866AA /* HeaderView.m */; };
+		149D7D4F1F21F9A6005866AA /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 149D7D4E1F21F9A6005866AA /* HeaderView.xib */; };
+		149D7D521F21FF18005866AA /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 149D7D511F21FF18005866AA /* FooterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +52,11 @@
 		149D7D431F20C59B005866AA /* DGTableViewAbstraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGTableViewAbstraction.h; sourceTree = "<group>"; };
 		149D7D481F21D0AC005866AA /* UIViewController+DGTableViewAbstraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DGTableViewAbstraction.h"; sourceTree = "<group>"; };
 		149D7D491F21D0AC005866AA /* UIViewController+DGTableViewAbstraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DGTableViewAbstraction.m"; sourceTree = "<group>"; };
+		149D7D4B1F21F98F005866AA /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		149D7D4C1F21F98F005866AA /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		149D7D4E1F21F9A6005866AA /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		149D7D501F21FF18005866AA /* FooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
+		149D7D511F21FF18005866AA /* FooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +93,11 @@
 				144304F11F208C3200B1535D /* AppDelegate.m */,
 				144304F31F208C3200B1535D /* ViewController.h */,
 				144304F41F208C3200B1535D /* ViewController.m */,
+				149D7D4B1F21F98F005866AA /* HeaderView.h */,
+				149D7D4C1F21F98F005866AA /* HeaderView.m */,
+				149D7D4E1F21F9A6005866AA /* HeaderView.xib */,
+				149D7D501F21FF18005866AA /* FooterView.h */,
+				149D7D511F21FF18005866AA /* FooterView.m */,
 				144304F61F208C3200B1535D /* Main.storyboard */,
 				144304F91F208C3200B1535D /* Assets.xcassets */,
 				144304FB1F208C3200B1535D /* LaunchScreen.storyboard */,
@@ -178,6 +191,7 @@
 				144304FD1F208C3200B1535D /* LaunchScreen.storyboard in Resources */,
 				144304FA1F208C3200B1535D /* Assets.xcassets in Resources */,
 				144304F81F208C3200B1535D /* Main.storyboard in Resources */,
+				149D7D4F1F21F9A6005866AA /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,9 +207,11 @@
 				144304F51F208C3200B1535D /* ViewController.m in Sources */,
 				1485A0391F20ABEB00A9C126 /* DGTableViewControllerWithTableViewAbstraction.m in Sources */,
 				144305001F208C3200B1535D /* main.m in Sources */,
+				149D7D4D1F21F98F005866AA /* HeaderView.m in Sources */,
 				144304F21F208C3200B1535D /* AppDelegate.m in Sources */,
 				1443050C1F208CA500B1535D /* DGTableViewAbstractionSectionModel.m in Sources */,
 				1443050F1F208CB300B1535D /* DGTableViewAbstractionRowModel.m in Sources */,
+				149D7D521F21FF18005866AA /* FooterView.m in Sources */,
 				149D7D4A1F21D0AC005866AA /* UIViewController+DGTableViewAbstraction.m in Sources */,
 				1423FD5A1F20B912007A3CFA /* DGViewControllerWithSelfSizingTableViewAbstraction.m in Sources */,
 			);

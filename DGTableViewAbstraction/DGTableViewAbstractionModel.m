@@ -22,13 +22,13 @@
     if (tableView == nil) {
         return;
     }
-    [self.sections enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(DGTableViewAbstractionSectionModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.sections enumerateObjectsUsingBlock:^(DGTableViewAbstractionSectionModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         // register headers
         [self _registerHeaderFooter:obj.header forTableView:tableView];
         // register footers
         [self _registerHeaderFooter:obj.footer forTableView:tableView];
         // register cells
-        [obj.rows enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(DGTableViewAbstractionRowModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj.rows enumerateObjectsUsingBlock:^(DGTableViewAbstractionRowModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSString *cellReuseIdentifier = obj.cellReuseIdentifier;
             if (obj.cellClass && !cellReuseIdentifier) {
                 cellReuseIdentifier = NSStringFromClass(obj.cellClass);

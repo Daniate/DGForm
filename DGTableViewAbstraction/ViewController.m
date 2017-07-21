@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "DGTableViewAbstraction.h"
+#import "HeaderView.h"
+#import "FooterView.h"
 
 @interface ViewController ()
 
@@ -26,8 +28,11 @@
     uint32_t outerRnd = 1 + arc4random_uniform(100);
     for (uint32_t i = 0; i < outerRnd; i++) {
         DGTableViewAbstractionSectionModel *sectionModel = [DGTableViewAbstractionSectionModel new];
-        sectionModel.header.headerFooterHeight = 10 + arc4random_uniform(100);
-        sectionModel.footer.headerFooterHeight = 10 + arc4random_uniform(100);
+        sectionModel.header.headerFooterClass = [HeaderView class];
+        sectionModel.header.headerFooterHeight = 30 + arc4random_uniform(100);
+        
+        sectionModel.footer.headerFooterClass = [FooterView class];
+        sectionModel.footer.headerFooterHeight = 30 + arc4random_uniform(100);
         
         for (uint32_t i = 0; i < 10; i++) {
             DGTableViewAbstractionRowModel *rowModel = [DGTableViewAbstractionRowModel new];

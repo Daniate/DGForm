@@ -45,12 +45,10 @@
     self = [super init];
     if (self) {
         _header = [DGTableViewSectionHeaderFooterModel new];
-        _header.headerFooterClass = [UITableViewHeaderFooterView class];
         
         _rows = @[].mutableCopy;
         
         _footer = [DGTableViewSectionHeaderFooterModel new];
-        _footer.headerFooterClass = [UITableViewHeaderFooterView class];
     }
     return self;
 }

@@ -45,9 +45,6 @@
     [self.tableViewModel registerClassesForTableView:self.tableView];
 }
 
-#pragma mark - Private
-
-
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return (NSInteger)self.tableViewModel.sections.count;
