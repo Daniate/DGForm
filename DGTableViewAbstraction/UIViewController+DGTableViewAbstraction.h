@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Daniate. All rights reserved.
 //
 
-#import "DGTableViewAbstractionModel.h"
+#import "DGTableViewAbstractionModels.h"
 #import "DGTableViewAbstractionProtocols.h"
 
 @interface UIViewController (DGTableViewAbstraction)

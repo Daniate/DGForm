@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DGTableViewAbstractionModel.h"
+#import "DGTableViewAbstractionModels.h"
 #import "DGTableViewAbstractionProtocols.h"
 
 @interface DGTableViewControllerWithTableViewAbstraction : UITableViewController <DGTableViewAbstractionDelegate>
