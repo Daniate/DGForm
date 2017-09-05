@@ -32,3 +32,28 @@
 @optional
 - (void)dg_updateHeaderFooterWithData:(id _Nullable)data;
 @end
+
+/**
+ Your custom table view header views can confirm this protocol.
+ 
+ Protocol to be adopted by the section header's delegate.
+ 
+ The section header tells its delegate when the section should be opened and closed.
+ */
+@protocol DGTableViewAbstractionHeaderViewDelegate <NSObject>
+@optional
+/**
+ Before row insertion/deletion/reloading.
+ 
+ @param sectionHeaderView may be a UITableViewHeaderFooterView object
+ @param section section index
+ */
+- (void)sectionHeaderView:(nonnull __kindof UIView *)sectionHeaderView willOpen:(NSInteger)section;
+/**
+ Before row insertion/deletion/reloading.
+ 
+ @param sectionHeaderView may be a UITableViewHeaderFooterView object
+ @param section section index
+ */
+- (void)sectionHeaderView:(nonnull __kindof UIView *)sectionHeaderView willClose:(NSInteger)section;
+@end

@@ -15,16 +15,20 @@
 
 @implementation DGViewControllerWithSelfSizingTableViewAbstraction
 
+- (void)dealloc {
+    [self removeObserver:self forKeyPath:@"tableView"];
+}
+
 - (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        _tableViewModel = [DGTableViewAbstractionModel new];
+        [self _init];
     }
     return self;
 }
 
 - (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
-        _tableViewModel = [DGTableViewAbstractionModel new];
+        [self _init];
     }
     return self;
 }
@@ -41,6 +45,23 @@
 
 - (void)registerClassesForTableView {
     [self.tableViewModel registerClassesForTableView:self.tableView];
+}
+
+#pragma mark - Private
+- (void)_init {
+    [self addObserver:self forKeyPath:@"tableView" options:NSKeyValueObservingOptionNew context:NULL];
+    _tableViewModel = [DGTableViewAbstractionModel new];
+}
+
+#pragma mark - NSKeyValueObserving
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"tableView"]) {
+        UITableView *tableView = (UITableView *)change[NSKeyValueChangeNewKey];
+        if (tableView) {
+            tableView.rowHeight = UITableViewAutomaticDimension;
+            tableView.estimatedRowHeight = 44;
+        }
+    }
 }
 
 #pragma mark - UITableViewDataSource

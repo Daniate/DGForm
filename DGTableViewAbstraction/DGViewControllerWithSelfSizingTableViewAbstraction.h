@@ -14,9 +14,6 @@
 /**
  You may not use nib or storyboard, so use `strong` keyword.
  You should create table view by yourself.
- And call:
- self.tableView.rowHeight = UITableViewAutomaticDimension;
- self.tableView.estimatedRowHeight = 44;
  */
 @property (nonatomic, strong, nullable) IBOutlet UITableView *tableView;
 @property (nonatomic, readonly, strong, nonnull) DGTableViewAbstractionModel *tableViewModel;
