@@ -11,11 +11,7 @@
 #import "DGTableViewAbstractionProtocols.h"
 
 @interface DGViewControllerWithTableViewAbstraction : UIViewController <UITableViewDataSource, DGTableViewAbstractionDelegate>
-/**
- You may not use nib or storyboard, so use `strong` keyword.
- You should create table view by yourself.
- */
-@property (nonatomic, strong, nullable) IBOutlet UITableView *tableView;
+@property (nonatomic, weak, nullable) IBOutlet UITableView *tableView;
 @property (nonatomic, readonly, strong, nonnull) DGTableViewAbstractionModel *tableViewModel;
 - (void)registerClassesForTableView;
 @end

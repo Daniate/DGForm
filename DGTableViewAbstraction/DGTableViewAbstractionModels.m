@@ -116,19 +116,7 @@
         [self _registerHeaderFooter:obj.footer forTableView:tableView];
         // register cells
         [obj.rows enumerateObjectsUsingBlock:^(DGTableViewAbstractionRowModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSString *cellReuseIdentifier = obj.cellReuseIdentifier;
-            if (obj.cellClass && !cellReuseIdentifier) {
-                cellReuseIdentifier = NSStringFromClass(obj.cellClass);
-            }
-            if (obj.cellClass && cellReuseIdentifier) {
-                [tableView registerClass:obj.cellClass forCellReuseIdentifier:cellReuseIdentifier];
-                
-                NSString *nibName = NSStringFromClass(obj.cellClass);
-                NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:nibName ofType:@"nib"];
-                if (path) {
-                    [tableView registerNib:[UINib nibWithNibName:nibName bundle:nil] forCellReuseIdentifier:cellReuseIdentifier];
-                }
-            }
+            [self _registerCell:obj forTableView:tableView];
         }];
     }];
 }
@@ -162,6 +150,22 @@
         NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:nibName ofType:@"nib"];
         if (path) {
             [tableView registerNib:[UINib nibWithNibName:nibName bundle:nil] forHeaderFooterViewReuseIdentifier:reuseIdentifier];
+        }
+    }
+}
+
+- (void)_registerCell:(DGTableViewAbstractionRowModel * _Nonnull)model forTableView:(UITableView * _Nonnull)tableView {
+    NSString *cellReuseIdentifier = model.cellReuseIdentifier;
+    if (model.cellClass && !cellReuseIdentifier) {
+        cellReuseIdentifier = NSStringFromClass(model.cellClass);
+    }
+    if (model.cellClass && cellReuseIdentifier) {
+        [tableView registerClass:model.cellClass forCellReuseIdentifier:cellReuseIdentifier];
+        
+        NSString *nibName = NSStringFromClass(model.cellClass);
+        NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:nibName ofType:@"nib"];
+        if (path) {
+            [tableView registerNib:[UINib nibWithNibName:nibName bundle:nil] forCellReuseIdentifier:cellReuseIdentifier];
         }
     }
 }
