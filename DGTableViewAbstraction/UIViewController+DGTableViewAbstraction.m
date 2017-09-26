@@ -14,16 +14,15 @@
                              tableView:(UITableView * _Nonnull)tableView
              headerFooterViewInSection:(NSInteger)section
                                   type:(DGTableViewHeaderFooterType)type {
-    if (type != DGTableViewHeaderFooterTypeHeader &&
-        type != DGTableViewHeaderFooterTypeFooter) {
-        return nil;
-    }
     DGTableViewAbstractionSectionModel *sectionModel = [tableViewModel sectionModelForSection:section];
     DGTableViewSectionHeaderFooterModel *headerFooterModel = nil;
     if (type == DGTableViewHeaderFooterTypeHeader) {
         headerFooterModel = sectionModel.header;
     } else if (type == DGTableViewHeaderFooterTypeFooter) {
         headerFooterModel = sectionModel.footer;
+    }
+    if (headerFooterModel.headerFooterView) {
+        return headerFooterModel.headerFooterView;
     }
     NSString *reuseIdentifier = headerFooterModel.headerFooterReuseIdentifier;
     if (reuseIdentifier == nil) {
@@ -34,9 +33,14 @@
         headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
     }
     if ([headerFooterView respondsToSelector:@selector(dg_updateHeaderFooterWithData:)]) {
-        [headerFooterView dg_updateHeaderFooterWithData:sectionModel.header.data];
+        [headerFooterView dg_updateHeaderFooterWithData:headerFooterModel.data];
     }
-    return headerFooterView;
+    if (headerFooterView) {
+        return headerFooterView;
+    }
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
 }
 
 @end

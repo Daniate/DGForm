@@ -46,6 +46,10 @@ typedef NS_ENUM(NSUInteger, DGTableViewHeaderFooterType) {
 @property (nonatomic, strong, nullable) Class headerFooterClass;
 @property (nonatomic, copy, nullable) NSString *headerFooterReuseIdentifier;
 /**
+ Its priority is higher than `headerFooterClass` & `headerFooterReuseIdentifier`
+ */
+@property (nonatomic, strong, nullable) UIView *headerFooterView;
+/**
  default is DG_CGFLOAT_EPSILON, see above macro define
  */
 @property (nonatomic, assign) CGFloat headerFooterHeight;
