@@ -9,12 +9,20 @@
 #import <UIKit/UIKit.h>
 
 @class DGTableViewAbstractionRowModel;
+@class DGTableViewSectionHeaderFooterModel;
 
-@protocol DGTableViewAbstractionDelegate <UITableViewDelegate>
+@protocol DGTableViewAbstractionDataSource <NSObject>
+@optional
+- (void)dg_tableView:(UITableView * _Nonnull)tableView cell:(UITableViewCell * _Nonnull)cell rowModel:(DGTableViewAbstractionRowModel * _Nonnull)rowModel atIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+@protocol DGTableViewAbstractionDelegate <NSObject>
 @optional
 // Called after the user changes the selection.
-- (void)dg_tableView:(UITableView * _Nonnull)tableView didSelectRowModel:(DGTableViewAbstractionRowModel * _Nonnull)rowModel;
-- (void)dg_tableView:(UITableView * _Nonnull)tableView didDeselectRowModel:(DGTableViewAbstractionRowModel * _Nonnull)rowModel;
+- (void)dg_tableView:(UITableView * _Nonnull)tableView didSelectRowModel:(DGTableViewAbstractionRowModel * _Nonnull)rowModel atIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)dg_tableView:(UITableView * _Nonnull)tableView didDeselectRowModel:(DGTableViewAbstractionRowModel * _Nonnull)rowModel atIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)dg_tableView:(UITableView * _Nonnull)tableView headerView:(UIView * _Nullable)headerView headerModel:(DGTableViewSectionHeaderFooterModel * _Nonnull)headerModel inSection:(NSInteger)section;
+- (void)dg_tableView:(UITableView * _Nonnull)tableView footerView:(UIView * _Nullable)footerView footerModel:(DGTableViewSectionHeaderFooterModel * _Nonnull)footerModel inSection:(NSInteger)section;
 @end
 
 /**

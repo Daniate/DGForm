@@ -7,31 +7,34 @@
 //
 
 #import "DGTableViewControllerWithTableViewAbstraction.h"
-#import "UIViewController+DGTableViewAbstraction.h"
 
-@interface DGTableViewControllerWithTableViewAbstraction ()
-
+@interface DGTableViewControllerWithEstimatedHeightTableViewAbstraction () {
+@protected
+    DGTableViewAbstractionModel *_tableViewModel;
+    DGTableViewDataSourceImpl *_tableViewDataSource;
+    __kindof DGTableViewEstimatedHeightDelegateImpl *_tableViewDelegate;
+}
 @end
 
-@implementation DGTableViewControllerWithTableViewAbstraction
+@implementation DGTableViewControllerWithEstimatedHeightTableViewAbstraction
 
 - (instancetype)initWithStyle:(UITableViewStyle)style {
     if (self = [super initWithStyle:style]) {
-        _tableViewModel = [DGTableViewAbstractionModel new];
+        [self _init];
     }
     return self;
 }
 
 - (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        _tableViewModel = [DGTableViewAbstractionModel new];
+        [self _init];
     }
     return self;
 }
 
 - (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
-        _tableViewModel = [DGTableViewAbstractionModel new];
+        [self _init];
     }
     return self;
 }
@@ -39,11 +42,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
+    self.tableView.sectionFooterHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44;
+    self.tableView.estimatedSectionHeaderHeight = 30;
+    self.tableView.estimatedSectionFooterHeight = 30;
+    self.tableView.dataSource = self.tableViewDataSource;
+    self.tableView.delegate = self.tableViewDelegate;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,74 +61,31 @@
     [self.tableViewModel registerClassesForTableView:self.tableView];
 }
 
-#pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return (NSInteger)self.tableViewModel.sections.count;
+#pragma mark - Private
+- (void)_init {
+    _tableViewModel = [DGTableViewAbstractionModel new];
+    _tableViewDataSource = [[DGTableViewDataSourceImpl alloc] initWithModel:_tableViewModel];
+    _tableViewDelegate = [[DGTableViewEstimatedHeightDelegateImpl alloc] initWithModel:_tableViewModel];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section < self.tableViewModel.sections.count) {
-        return (NSInteger)self.tableViewModel.sections[section].rows.count;
-    }
-    return 0;
+@end
+
+@implementation DGTableViewControllerWithTableViewAbstraction
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // cancel estimate
+    self.tableView.estimatedRowHeight = 0;
+    self.tableView.estimatedSectionHeaderHeight = 0;
+    self.tableView.estimatedSectionFooterHeight = 0;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell<DGTableViewAbstractionCellUpdating> *cell = nil;
-    DGTableViewAbstractionRowModel *rowModel = [self.tableViewModel rowModelForIndexPath:indexPath];
-    if (rowModel.cellReuseIdentifier) {
-        cell = [tableView dequeueReusableCellWithIdentifier:rowModel.cellReuseIdentifier forIndexPath:indexPath];
-    } else if (rowModel.cellClass) {
-        cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(rowModel.cellClass) forIndexPath:indexPath];
-    }
-    if ([cell respondsToSelector:@selector(dg_updateCellWithData:)]) {
-        [cell dg_updateCellWithData:rowModel.data];
-    }
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DGTableViewAbstractionRowModel *rowModel = [self.tableViewModel rowModelForIndexPath:indexPath];
-    return rowModel.cellHeight;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    DGTableViewAbstractionSectionModel *sectionModel = [self.tableViewModel sectionModelForSection:section];
-    if (sectionModel) {
-        return sectionModel.header.headerFooterHeight;
-    }
-    return DG_CGFLOAT_EPSILON;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    DGTableViewAbstractionSectionModel *sectionModel = [self.tableViewModel sectionModelForSection:section];
-    if (sectionModel) {
-        return sectionModel.footer.headerFooterHeight;
-    }
-    return DG_CGFLOAT_EPSILON;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DGTableViewAbstractionRowModel *rowModel = [self.tableViewModel rowModelForIndexPath:indexPath];
-    if ([self.tableView.delegate respondsToSelector:@selector(dg_tableView:didSelectRowModel:)]) {
-        [(id<DGTableViewAbstractionDelegate>)self.tableView.delegate dg_tableView:tableView didSelectRowModel:rowModel];
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DGTableViewAbstractionRowModel *rowModel = [self.tableViewModel rowModelForIndexPath:indexPath];
-    if ([self.tableView.delegate respondsToSelector:@selector(dg_tableView:didDeselectRowModel:)]) {
-        [(id<DGTableViewAbstractionDelegate>)self.tableView.delegate dg_tableView:tableView didDeselectRowModel:rowModel];
-    }
-}
-
-- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return [self dg_tableViewModel:self.tableViewModel tableView:tableView headerFooterViewInSection:section type:DGTableViewHeaderFooterTypeHeader];
-}
-
-- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    return [self dg_tableViewModel:self.tableViewModel tableView:tableView headerFooterViewInSection:section type:DGTableViewHeaderFooterTypeFooter];
+#pragma mark - Private
+- (void)_init {
+    _tableViewModel = [DGTableViewAbstractionModel new];
+    _tableViewDataSource = [[DGTableViewDataSourceImpl alloc] initWithModel:_tableViewModel];
+    _tableViewDelegate = [[DGTableViewDelegateImpl alloc] initWithModel:_tableViewModel];
 }
 
 @end

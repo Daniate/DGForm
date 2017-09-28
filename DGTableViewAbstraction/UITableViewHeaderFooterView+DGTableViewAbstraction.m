@@ -1,16 +1,16 @@
 //
-//  UIViewController+DGTableViewAbstraction.m
+//  UITableViewHeaderFooterView+DGTableViewAbstraction.m
 //  DGTableViewAbstraction
 //
-//  Created by Daniate on 2017/7/21.
+//  Created by Daniate on 2017/9/28.
 //  Copyright © 2017年 Daniate. All rights reserved.
 //
 
-#import "UIViewController+DGTableViewAbstraction.h"
+#import "UITableViewHeaderFooterView+DGTableViewAbstraction.h"
+#import "DGTableViewAbstractionProtocols.h"
 
-@implementation UIViewController (DGTableViewAbstraction)
-
-- (nullable UIView *)dg_tableViewModel:(DGTableViewAbstractionModel * _Nonnull)tableViewModel
+@implementation UITableViewHeaderFooterView (DGTableViewAbstraction)
++ (nullable UIView *)dg_tableViewModel:(DGTableViewAbstractionModel * _Nonnull)tableViewModel
                              tableView:(UITableView * _Nonnull)tableView
              headerFooterViewInSection:(NSInteger)section
                                   type:(DGTableViewHeaderFooterType)type {
@@ -38,9 +38,10 @@
     if (headerFooterView) {
         return headerFooterView;
     }
-    UIView *view = [[UIView alloc] init];
-    view.backgroundColor = [UIColor clearColor];
+//    UIView *view = [[UIView alloc] init];
+//    view.backgroundColor = [UIColor clearColor];
+//    return view;
+    UITableViewHeaderFooterView *view = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:nil];
     return view;
 }
-
 @end

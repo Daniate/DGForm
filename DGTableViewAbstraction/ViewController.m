@@ -8,11 +8,13 @@
 
 #import "ViewController.h"
 #import "DGTableViewAbstraction.h"
-#import "HeaderView.h"
-#import "FooterView.h"
+#import "TableViewCell.h"
+#import "TableViewController.h"
+#import "TableViewControllerWithEstimatedHeight.h"
+#import "ViewControllerWithEstimatedHeight.h"
 
-@interface ViewController ()
-
+@interface ViewController () <DGTableViewAbstractionDelegate>
+@property (nonatomic, copy) NSArray<NSString *> *titleList;
 @end
 
 @implementation ViewController
@@ -21,54 +23,60 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.view.backgroundColor = [UIColor orangeColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    [self configureEstimatedHeightTableView];
+    self.tableViewDelegate.delegate = self;
+    [self.tableView registerClass:[TableViewCell class] forCellReuseIdentifier:@"TableViewCell"];
     
     [self.tableViewModel.sections removeAllObjects];
+    NSArray<NSString *> *titleList = @[
+                                       @"DGTableViewControllerWithTableViewAbstraction",
+                                       @"DGTableViewControllerWithEstimatedHeightTableViewAbstraction",
+                                       @"DGViewControllerWithEstimatedHeightTableViewAbstraction",
+                                       ];
     
-    uint32_t outerRnd = 1 + arc4random_uniform(100);
-    for (uint32_t i = 0; i < outerRnd; i++) {
-        DGTableViewAbstractionSectionModel *sectionModel = [DGTableViewAbstractionSectionModel new];
-        sectionModel.header.headerFooterClass = [HeaderView class];
-        sectionModel.header.headerFooterHeight = 30 + arc4random_uniform(100);
-        
-        sectionModel.footer.headerFooterClass = [FooterView class];
-        sectionModel.footer.headerFooterHeight = 30 + arc4random_uniform(100);
-        
-        for (uint32_t i = 0; i < 10; i++) {
-            DGTableViewAbstractionRowModel *rowModel = [DGTableViewAbstractionRowModel new];
-            rowModel.cellHeight = 44 + arc4random_uniform(100);
-            [sectionModel.rows addObject:rowModel];
-        }
-        
-        [self.tableViewModel.sections addObject:sectionModel];
+    DGTableViewAbstractionSectionModel *sectionModel = [DGTableViewAbstractionSectionModel new];
+    for (NSUInteger i = 0; i < titleList.count; i++) {
+        DGTableViewAbstractionRowModel *rowModel = [DGTableViewAbstractionRowModel new];
+        rowModel.cellClass = [TableViewCell class];
+        rowModel.cellHeight = 44;
+        rowModel.data = titleList[i];
+        [sectionModel.rows addObject:rowModel];
     }
-    
-    [self registerClassesForTableView];
+    [self.tableViewModel.sections addObject:sectionModel];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSArray<NSIndexPath *> *selectedRows = [self.tableView indexPathsForSelectedRows];
+    for (NSIndexPath *indexPath in selectedRows) {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"xxxxx" forIndexPath:indexPath];
-    cell.contentView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1];
-    return cell;
+#pragma mark - DGTableViewAbstractionDelegate
+- (void)dg_tableView:(UITableView *)tableView didSelectRowModel:(DGTableViewAbstractionRowModel *)rowModel atIndexPath:(NSIndexPath * _Nonnull)indexPath {
+    if ([rowModel.data isKindOfClass:[NSString class]]) {
+        if ([rowModel.data isEqualToString:@"DGTableViewControllerWithTableViewAbstraction"]) {
+            TableViewController *vc = [[TableViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else if ([rowModel.data isEqualToString:@"DGTableViewControllerWithEstimatedHeightTableViewAbstraction"]) {
+            TableViewControllerWithEstimatedHeight *vc = [[TableViewControllerWithEstimatedHeight alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else if ([rowModel.data isEqualToString:@"DGViewControllerWithEstimatedHeightTableViewAbstraction"]) {
+            ViewControllerWithEstimatedHeight *vc = [[ViewControllerWithEstimatedHeight alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }
 }
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)[super tableView:tableView viewForHeaderInSection:section];
-    header.contentView.backgroundColor = [UIColor redColor];
-    return header;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UITableViewHeaderFooterView *footer = (UITableViewHeaderFooterView *)[super tableView:tableView viewForFooterInSection:section];
-    footer.contentView.backgroundColor = [UIColor orangeColor];
-    return footer;
-}
-
 
 @end

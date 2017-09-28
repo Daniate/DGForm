@@ -8,6 +8,4 @@
 
 #import "DGTableViewControllerWithTableViewAbstraction.h"
 #import "DGViewControllerWithTableViewAbstraction.h"
-#import "DGViewControllerWithSelfSizingTableViewAbstraction.h"
 #import "DGTableViewAbstractionHeaderView.h"
-#import "UIViewController+DGTableViewAbstraction.h"
