@@ -10,9 +10,12 @@
 #import "DGTableViewAbstractionModels.h"
 #import "DGTableViewAbstractionProtocols.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface DGTableViewEstimatedHeightDelegateImpl : NSObject <UITableViewDelegate>
-- (instancetype _Nullable)init UNAVAILABLE_ATTRIBUTE;
-- (instancetype _Nonnull)initWithModel:(DGTableViewAbstractionModel * _Nonnull)model NS_DESIGNATED_INITIALIZER;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithModel:(DGTableViewAbstractionModel *)model NS_DESIGNATED_INITIALIZER;
 @property (nonatomic, weak, nullable) IBOutlet id<DGTableViewAbstractionDelegate> delegate;
 @end
 
@@ -20,3 +23,4 @@
 
 @end
 
+NS_ASSUME_NONNULL_END

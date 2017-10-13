@@ -23,12 +23,14 @@ typedef NS_ENUM(NSUInteger, DGTableViewHeaderFooterType) {
     DGTableViewHeaderFooterTypeFooter,
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface DGTableViewAbstractionRowModel : NSObject
+@property (nonatomic, strong, readonly) Class cellClass;
 /**
- if `cellReuseIdentifier` is nil, will set `cellReuseIdentifier` = NSStringFromClass(cellClass)
+ default is NSStringFromClass(cellClass)
  */
-@property (nonatomic, strong, nullable) Class cellClass;
-@property (nonatomic, copy, nullable) NSString *cellReuseIdentifier;
+@property (nonatomic, copy) NSString *cellReuseIdentifier;
 /**
  default is 44
  */
@@ -37,14 +39,17 @@ typedef NS_ENUM(NSUInteger, DGTableViewHeaderFooterType) {
  model or view model
  */
 @property (nonatomic, strong, nullable) id data;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithCellClass:(Class)cellClass NS_DESIGNATED_INITIALIZER;
 @end
 
 @interface DGTableViewSectionHeaderFooterModel : NSObject
+@property (nonatomic, strong, readonly) Class headerFooterClass;
 /**
- if `headerFooterReuseIdentifier` is nil, will set `headerFooterReuseIdentifier` = NSStringFromClass(headerFooterClass)
+ default is NSStringFromClass(headerFooterClass)
  */
-@property (nonatomic, strong, nullable) Class headerFooterClass;
-@property (nonatomic, copy, nullable) NSString *headerFooterReuseIdentifier;
+@property (nonatomic, copy) NSString *headerFooterReuseIdentifier;
 /**
  Its priority is higher than `headerFooterClass` & `headerFooterReuseIdentifier`
  */
@@ -57,23 +62,31 @@ typedef NS_ENUM(NSUInteger, DGTableViewHeaderFooterType) {
  model or view model
  */
 @property (nonatomic, strong, nullable) id data;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithHeaderFooterClass:(Class)headerFooterClass NS_DESIGNATED_INITIALIZER;
 @end
 
 @interface DGTableViewAbstractionSectionModel : NSObject
-@property (nonatomic, readonly, strong, nonnull) DGTableViewSectionHeaderFooterModel *header;
-@property (nonatomic, readonly, strong, nonnull) NSMutableArray<DGTableViewAbstractionRowModel *> *rows;
-@property (nonatomic, readonly, strong, nonnull) DGTableViewSectionHeaderFooterModel *footer;
+@property (nonatomic, readonly, strong) DGTableViewSectionHeaderFooterModel *header;
+@property (nonatomic, readonly, strong) NSMutableArray<DGTableViewAbstractionRowModel *> *rows;
+@property (nonatomic, readonly, strong) DGTableViewSectionHeaderFooterModel *footer;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithHeaderClass:(Class)headerClass footerClass:(Class)footerClass NS_DESIGNATED_INITIALIZER;
 @end
 
 @interface DGTableViewAbstractionModel : NSObject
-@property (nonatomic, strong, nonnull, readonly) NSMutableArray<DGTableViewAbstractionSectionModel *> *sections;
+@property (nonatomic, strong, readonly) NSMutableArray<DGTableViewAbstractionSectionModel *> *sections;
 
 /**
  register headers/footers/cells
 
  @param tableView tableView
  */
-- (void)registerClassesForTableView:(UITableView * _Nonnull)tableView;
+- (void)registerClassesForTableView:(UITableView *)tableView;
 - (DGTableViewAbstractionSectionModel * _Nullable)sectionModelForSection:(NSInteger)section;
-- (DGTableViewAbstractionRowModel * _Nullable)rowModelForIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (DGTableViewAbstractionRowModel * _Nullable)rowModelForIndexPath:(NSIndexPath *)indexPath;
 @end
+
+NS_ASSUME_NONNULL_END

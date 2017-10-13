@@ -10,28 +10,22 @@
 #import "DGTableViewAbstractionProtocols.h"
 
 @implementation UITableViewHeaderFooterView (DGTableViewAbstraction)
-+ (nullable UIView *)dg_tableViewModel:(DGTableViewAbstractionModel * _Nonnull)tableViewModel
-                             tableView:(UITableView * _Nonnull)tableView
++ (nullable UIView *)dg_tableViewModel:(DGTableViewAbstractionModel *)tableViewModel
+                             tableView:(UITableView *)tableView
              headerFooterViewInSection:(NSInteger)section
                                   type:(DGTableViewHeaderFooterType)type {
     DGTableViewAbstractionSectionModel *sectionModel = [tableViewModel sectionModelForSection:section];
     DGTableViewSectionHeaderFooterModel *headerFooterModel = nil;
-    if (type == DGTableViewHeaderFooterTypeHeader) {
-        headerFooterModel = sectionModel.header;
-    } else if (type == DGTableViewHeaderFooterTypeFooter) {
+    if (type == DGTableViewHeaderFooterTypeFooter) {
         headerFooterModel = sectionModel.footer;
+    } else {
+        headerFooterModel = sectionModel.header;
     }
     if (headerFooterModel.headerFooterView) {
         return headerFooterModel.headerFooterView;
     }
     NSString *reuseIdentifier = headerFooterModel.headerFooterReuseIdentifier;
-    if (reuseIdentifier == nil) {
-        reuseIdentifier = NSStringFromClass(headerFooterModel.headerFooterClass);
-    }
-    UITableViewHeaderFooterView<DGTableViewAbstractionHeaderFooterUpdating> *headerFooterView = nil;
-    if (reuseIdentifier) {
-        headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
-    }
+    UITableViewHeaderFooterView<DGTableViewAbstractionHeaderFooterUpdating> *headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
     if ([headerFooterView respondsToSelector:@selector(dg_updateHeaderFooterWithData:)]) {
         [headerFooterView dg_updateHeaderFooterWithData:headerFooterModel.data];
     }

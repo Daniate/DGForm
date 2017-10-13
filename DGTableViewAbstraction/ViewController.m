@@ -36,10 +36,10 @@
                                        @"DGViewControllerWithEstimatedHeightTableViewAbstraction",
                                        ];
     
-    DGTableViewAbstractionSectionModel *sectionModel = [DGTableViewAbstractionSectionModel new];
+    Class headerFooterClass = [UITableViewHeaderFooterView class];
+    DGTableViewAbstractionSectionModel *sectionModel = [[DGTableViewAbstractionSectionModel alloc] initWithHeaderClass:headerFooterClass footerClass:headerFooterClass];
     for (NSUInteger i = 0; i < titleList.count; i++) {
-        DGTableViewAbstractionRowModel *rowModel = [DGTableViewAbstractionRowModel new];
-        rowModel.cellClass = [TableViewCell class];
+        DGTableViewAbstractionRowModel *rowModel = [[DGTableViewAbstractionRowModel alloc] initWithCellClass:[TableViewCell class]];
         rowModel.cellHeight = 44;
         rowModel.data = titleList[i];
         [sectionModel.rows addObject:rowModel];

@@ -27,11 +27,10 @@
     
     uint32_t numberOfSections = 1+ arc4random_uniform(10);
     
+    Class headerFooterClass = [EstimatedHeightTableViewHeaderFooterView class];
     for (uint32_t i = 0; i < numberOfSections; i++) {
-        DGTableViewAbstractionSectionModel *section = [DGTableViewAbstractionSectionModel new];
-        section.header.headerFooterClass = [EstimatedHeightTableViewHeaderFooterView class];
+        DGTableViewAbstractionSectionModel *section = [[DGTableViewAbstractionSectionModel alloc] initWithHeaderClass:headerFooterClass footerClass:headerFooterClass];
         section.header.headerFooterHeight = 60;
-        section.footer.headerFooterClass = [EstimatedHeightTableViewHeaderFooterView class];
         section.footer.headerFooterHeight = 30;
         
         uint32_t index = arc4random_uniform((uint32_t)[kText length]);
@@ -58,8 +57,7 @@
             p.name = desc.length > 10 ? [desc substringToIndex:10] : desc;
             p.detailDesc = [desc substringToIndex:arc4random_uniform((uint32_t)desc.length)];
             
-            DGTableViewAbstractionRowModel *row = [DGTableViewAbstractionRowModel new];
-            row.cellClass = [EstimatedHeightTableViewCell class];
+            DGTableViewAbstractionRowModel *row = [[DGTableViewAbstractionRowModel alloc] initWithCellClass:[EstimatedHeightTableViewCell class]];
             row.cellHeight = 200;
             row.data = p;
             [section.rows addObject:row];

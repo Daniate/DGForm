@@ -8,21 +8,36 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class DGTableViewAbstractionRowModel;
 @class DGTableViewSectionHeaderFooterModel;
 
 @protocol DGTableViewAbstractionDataSource <NSObject>
 @optional
-- (void)dg_tableView:(UITableView * _Nonnull)tableView cell:(UITableViewCell * _Nonnull)cell rowModel:(DGTableViewAbstractionRowModel * _Nonnull)rowModel atIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)dg_tableView:(UITableView *)tableView
+                cell:(UITableViewCell *)cell
+            rowModel:(DGTableViewAbstractionRowModel *)rowModel
+         atIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @protocol DGTableViewAbstractionDelegate <NSObject>
 @optional
 // Called after the user changes the selection.
-- (void)dg_tableView:(UITableView * _Nonnull)tableView didSelectRowModel:(DGTableViewAbstractionRowModel * _Nonnull)rowModel atIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (void)dg_tableView:(UITableView * _Nonnull)tableView didDeselectRowModel:(DGTableViewAbstractionRowModel * _Nonnull)rowModel atIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (void)dg_tableView:(UITableView * _Nonnull)tableView headerView:(UIView * _Nullable)headerView headerModel:(DGTableViewSectionHeaderFooterModel * _Nonnull)headerModel inSection:(NSInteger)section;
-- (void)dg_tableView:(UITableView * _Nonnull)tableView footerView:(UIView * _Nullable)footerView footerModel:(DGTableViewSectionHeaderFooterModel * _Nonnull)footerModel inSection:(NSInteger)section;
+- (void)dg_tableView:(UITableView *)tableView
+   didSelectRowModel:(DGTableViewAbstractionRowModel *)rowModel
+         atIndexPath:(NSIndexPath *)indexPath;
+- (void)dg_tableView:(UITableView *)tableView
+ didDeselectRowModel:(DGTableViewAbstractionRowModel *)rowModel
+         atIndexPath:(NSIndexPath *)indexPath;
+- (void)dg_tableView:(UITableView *)tableView
+          headerView:(UIView * _Nullable)headerView
+         headerModel:(DGTableViewSectionHeaderFooterModel *)headerModel
+           inSection:(NSInteger)section;
+- (void)dg_tableView:(UITableView *)tableView
+          footerView:(UIView * _Nullable)footerView
+         footerModel:(DGTableViewSectionHeaderFooterModel *)footerModel
+           inSection:(NSInteger)section;
 @end
 
 /**
@@ -56,12 +71,14 @@
  @param sectionHeaderView may be a UITableViewHeaderFooterView object
  @param section section index
  */
-- (void)sectionHeaderView:(nonnull __kindof UIView *)sectionHeaderView willOpen:(NSInteger)section;
+- (void)sectionHeaderView:(__kindof UIView *)sectionHeaderView willOpen:(NSInteger)section;
 /**
  Before row insertion/deletion/reloading.
  
  @param sectionHeaderView may be a UITableViewHeaderFooterView object
  @param section section index
  */
-- (void)sectionHeaderView:(nonnull __kindof UIView *)sectionHeaderView willClose:(NSInteger)section;
+- (void)sectionHeaderView:(__kindof UIView *)sectionHeaderView willClose:(NSInteger)section;
 @end
+
+NS_ASSUME_NONNULL_END

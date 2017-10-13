@@ -35,13 +35,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell<DGTableViewAbstractionCellUpdating> *cell = nil;
     DGTableViewAbstractionRowModel *rowModel = [self.model rowModelForIndexPath:indexPath];
-    if (rowModel.cellReuseIdentifier) {
-        cell = [tableView dequeueReusableCellWithIdentifier:rowModel.cellReuseIdentifier forIndexPath:indexPath];
-    } else if (rowModel.cellClass) {
-        cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(rowModel.cellClass) forIndexPath:indexPath];
-    }
+    UITableViewCell<DGTableViewAbstractionCellUpdating> *cell = [tableView dequeueReusableCellWithIdentifier:rowModel.cellReuseIdentifier forIndexPath:indexPath];
     if ([cell respondsToSelector:@selector(dg_updateCellWithData:)]) {
         [cell dg_updateCellWithData:rowModel.data];
     }

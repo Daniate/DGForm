@@ -10,8 +10,13 @@
 #import "DGTableViewAbstractionModels.h"
 #import "DGTableViewAbstractionProtocols.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface DGTableViewDataSourceImpl : NSObject <UITableViewDataSource>
-- (instancetype _Nullable)init UNAVAILABLE_ATTRIBUTE;
-- (instancetype _Nonnull)initWithModel:(DGTableViewAbstractionModel * _Nonnull)model NS_DESIGNATED_INITIALIZER;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithModel:(DGTableViewAbstractionModel *)model NS_DESIGNATED_INITIALIZER;
 @property (nonatomic, weak, nullable) IBOutlet id<DGTableViewAbstractionDataSource> dataSource;
 @end
+
+NS_ASSUME_NONNULL_END

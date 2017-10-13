@@ -10,22 +10,12 @@
 
 @implementation DGTableViewAbstractionRowModel
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
+- (instancetype)initWithCellClass:(Class)cellClass {
+    if (self = [super init]) {
         _cellHeight = 44;
+        _cellReuseIdentifier = NSStringFromClass(cellClass);
     }
     return self;
-}
-
-- (void)setCellClass:(Class)cellClass {
-    if (cellClass && _cellClass != cellClass) {
-        _cellClass = cellClass;
-        
-        if (self.cellReuseIdentifier == nil) {
-            self.cellReuseIdentifier = NSStringFromClass(cellClass);
-        }
-    }
 }
 
 - (NSString *)description {
@@ -41,22 +31,12 @@
 
 @implementation DGTableViewSectionHeaderFooterModel
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
+- (instancetype)initWithHeaderFooterClass:(Class)headerFooterClass {
+    if (self = [super init]) {
         _headerFooterHeight = DG_CGFLOAT_EPSILON;
+        _headerFooterReuseIdentifier = NSStringFromClass(headerFooterClass);
     }
     return self;
-}
-
-- (void)setHeaderFooterClass:(Class)headerFooterClass {
-    if (headerFooterClass && _headerFooterClass != headerFooterClass) {
-        _headerFooterClass = headerFooterClass;
-        
-        if (self.headerFooterReuseIdentifier == nil) {
-            self.headerFooterReuseIdentifier = NSStringFromClass(headerFooterClass);
-        }
-    }
 }
 
 - (NSString *)description {
@@ -72,14 +52,14 @@
 
 @implementation DGTableViewAbstractionSectionModel
 
-- (instancetype)init {
+- (instancetype)initWithHeaderClass:(Class)headerClass footerClass:(Class)footerClass {
     self = [super init];
     if (self) {
-        _header = [DGTableViewSectionHeaderFooterModel new];
+        _header = [[DGTableViewSectionHeaderFooterModel alloc] initWithHeaderFooterClass:headerClass];
         
         _rows = @[].mutableCopy;
         
-        _footer = [DGTableViewSectionHeaderFooterModel new];
+        _footer = [[DGTableViewSectionHeaderFooterModel alloc] initWithHeaderFooterClass:footerClass];
     }
     return self;
 }
@@ -97,7 +77,7 @@
 
 @implementation DGTableViewAbstractionModel
 
-- (instancetype _Nonnull)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         _sections = @[].mutableCopy;
@@ -105,7 +85,7 @@
     return self;
 }
 
-- (void)registerClassesForTableView:(UITableView * _Nonnull)tableView {
+- (void)registerClassesForTableView:(UITableView *)tableView {
     if (tableView == nil) {
         return;
     }
@@ -128,7 +108,7 @@
     return nil;
 }
 
-- (DGTableViewAbstractionRowModel * _Nullable)rowModelForIndexPath:(NSIndexPath * _Nonnull)indexPath {
+- (DGTableViewAbstractionRowModel * _Nullable)rowModelForIndexPath:(NSIndexPath *)indexPath {
     DGTableViewAbstractionSectionModel *sectionModel = [self sectionModelForSection:indexPath.section];
     NSInteger row = indexPath.row;
     if (row >= 0 && row < sectionModel.rows.count) {
@@ -138,7 +118,7 @@
 }
 
 #pragma mark - Private
-- (void)_registerHeaderFooter:(DGTableViewSectionHeaderFooterModel * _Nonnull)model forTableView:(UITableView * _Nonnull)tableView {
+- (void)_registerHeaderFooter:(DGTableViewSectionHeaderFooterModel *)model forTableView:(UITableView *)tableView {
     NSString *reuseIdentifier = model.headerFooterReuseIdentifier;
     if (model.headerFooterClass && !reuseIdentifier) {
         reuseIdentifier = NSStringFromClass(model.headerFooterClass);
@@ -154,7 +134,7 @@
     }
 }
 
-- (void)_registerCell:(DGTableViewAbstractionRowModel * _Nonnull)model forTableView:(UITableView * _Nonnull)tableView {
+- (void)_registerCell:(DGTableViewAbstractionRowModel *)model forTableView:(UITableView *)tableView {
     NSString *cellReuseIdentifier = model.cellReuseIdentifier;
     if (model.cellClass && !cellReuseIdentifier) {
         cellReuseIdentifier = NSStringFromClass(model.cellClass);
