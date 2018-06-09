@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		140C73481F7A6BD700B85390 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 140C73471F7A6BD700B85390 /* TableViewCell.m */; };
+		140C73511F7A85E400B85390 /* EHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140C73501F7A85E400B85390 /* EHViewController.m */; };
+		140C73551F7A880400B85390 /* EstimatedHeightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 140C73531F7A880400B85390 /* EstimatedHeightTableViewCell.m */; };
+		140C73561F7A880400B85390 /* EstimatedHeightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140C73541F7A880400B85390 /* EstimatedHeightTableViewCell.xib */; };
+		140C73591F7A892300B85390 /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = 140C73581F7A892300B85390 /* Picture.m */; };
+		140C735C1F7A89AA00B85390 /* EstimatedHeightTableViewCell+DG.m in Sources */ = {isa = PBXBuildFile; fileRef = 140C735B1F7A89AA00B85390 /* EstimatedHeightTableViewCell+DG.m */; };
+		144304F21F208C3200B1535D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 144304F11F208C3200B1535D /* AppDelegate.m */; };
+		144304F51F208C3200B1535D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144304F41F208C3200B1535D /* ViewController.m */; };
+		144304F81F208C3200B1535D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 144304F61F208C3200B1535D /* Main.storyboard */; };
+		144304FA1F208C3200B1535D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 144304F91F208C3200B1535D /* Assets.xcassets */; };
+		144304FD1F208C3200B1535D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 144304FB1F208C3200B1535D /* LaunchScreen.storyboard */; };
+		144305001F208C3200B1535D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 144304FF1F208C3200B1535D /* main.m */; };
+		14DECB6820A8641800B4758D /* DGForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DECB6720A8640F00B4758D /* DGForm.framework */; };
+		14EE4E431F7C95CD00FA5980 /* EstimatedHeightTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EE4E421F7C95CD00FA5980 /* EstimatedHeightTableViewHeaderFooterView.m */; };
+		14EE4E481F7C95E500FA5980 /* EstimatedHeightTableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14EE4E471F7C95E500FA5980 /* EstimatedHeightTableViewHeaderFooterView.xib */; };
+		14EE4E4B1F7C9B5A00FA5980 /* EstimatedHeightTableViewHeaderFooterView+DG.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EE4E4A1F7C9B5A00FA5980 /* EstimatedHeightTableViewHeaderFooterView+DG.m */; };
+		14EE4E4E1F7C9E4800FA5980 /* URLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EE4E4D1F7C9E4800FA5980 /* URLSessionManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		14DECB6620A8640F00B4758D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14DECB6220A8640F00B4758D /* DGForm.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 14C4444720A331CA002A805D;
+			remoteInfo = DGForm;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		140C73461F7A6BD700B85390 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		140C73471F7A6BD700B85390 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		140C734F1F7A85E400B85390 /* EHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHViewController.h; sourceTree = "<group>"; };
+		140C73501F7A85E400B85390 /* EHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHViewController.m; sourceTree = "<group>"; };
+		140C73521F7A880400B85390 /* EstimatedHeightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstimatedHeightTableViewCell.h; sourceTree = "<group>"; };
+		140C73531F7A880400B85390 /* EstimatedHeightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstimatedHeightTableViewCell.m; sourceTree = "<group>"; };
+		140C73541F7A880400B85390 /* EstimatedHeightTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EstimatedHeightTableViewCell.xib; sourceTree = "<group>"; };
+		140C73571F7A892300B85390 /* Picture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picture.h; sourceTree = "<group>"; };
+		140C73581F7A892300B85390 /* Picture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Picture.m; sourceTree = "<group>"; };
+		140C735A1F7A89AA00B85390 /* EstimatedHeightTableViewCell+DG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EstimatedHeightTableViewCell+DG.h"; sourceTree = "<group>"; };
+		140C735B1F7A89AA00B85390 /* EstimatedHeightTableViewCell+DG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EstimatedHeightTableViewCell+DG.m"; sourceTree = "<group>"; };
+		144304ED1F208C3200B1535D /* DGFormUsage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DGFormUsage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		144304F01F208C3200B1535D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		144304F11F208C3200B1535D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		144304F31F208C3200B1535D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		144304F41F208C3200B1535D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		144304F71F208C3200B1535D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		144304F91F208C3200B1535D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		144304FC1F208C3200B1535D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		144304FE1F208C3200B1535D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		144304FF1F208C3200B1535D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		14DECB0F20A5FE7100B4758D /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		14DECB6220A8640F00B4758D /* DGForm.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DGForm.xcodeproj; path = ../Framework/DGForm/DGForm.xcodeproj; sourceTree = "<group>"; };
+		14EE4E411F7C95CD00FA5980 /* EstimatedHeightTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstimatedHeightTableViewHeaderFooterView.h; sourceTree = "<group>"; };
+		14EE4E421F7C95CD00FA5980 /* EstimatedHeightTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstimatedHeightTableViewHeaderFooterView.m; sourceTree = "<group>"; };
+		14EE4E471F7C95E500FA5980 /* EstimatedHeightTableViewHeaderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EstimatedHeightTableViewHeaderFooterView.xib; sourceTree = "<group>"; };
+		14EE4E491F7C9B5A00FA5980 /* EstimatedHeightTableViewHeaderFooterView+DG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EstimatedHeightTableViewHeaderFooterView+DG.h"; sourceTree = "<group>"; };
+		14EE4E4A1F7C9B5A00FA5980 /* EstimatedHeightTableViewHeaderFooterView+DG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EstimatedHeightTableViewHeaderFooterView+DG.m"; sourceTree = "<group>"; };
+		14EE4E4C1F7C9E4800FA5980 /* URLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLSessionManager.h; sourceTree = "<group>"; };
+		14EE4E4D1F7C9E4800FA5980 /* URLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLSessionManager.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		144304EA1F208C3200B1535D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14DECB6820A8641800B4758D /* DGForm.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		144304E41F208C3200B1535D = {
+			isa = PBXGroup;
+			children = (
+				14DECB6220A8640F00B4758D /* DGForm.xcodeproj */,
+				144304EF1F208C3200B1535D /* DGFormUsage */,
+				144304EE1F208C3200B1535D /* Products */,
+				14C4448A20A33556002A805D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		144304EE1F208C3200B1535D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				144304ED1F208C3200B1535D /* DGFormUsage.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		144304EF1F208C3200B1535D /* DGFormUsage */ = {
+			isa = PBXGroup;
+			children = (
+				144304F01F208C3200B1535D /* AppDelegate.h */,
+				144304F11F208C3200B1535D /* AppDelegate.m */,
+				144304F91F208C3200B1535D /* Assets.xcassets */,
+				14DECB0920A34C0300B4758D /* EstimatedHeightTableViewCell */,
+				14DECB0A20A34C0D00B4758D /* EstimatedHeightTableViewHeaderFooterView */,
+				14DECB0B20A34C4800B4758D /* ViewControllers */,
+				144304FE1F208C3200B1535D /* Info.plist */,
+				144304FB1F208C3200B1535D /* LaunchScreen.storyboard */,
+				144304FF1F208C3200B1535D /* main.m */,
+				144304F61F208C3200B1535D /* Main.storyboard */,
+				140C73461F7A6BD700B85390 /* TableViewCell.h */,
+				140C73471F7A6BD700B85390 /* TableViewCell.m */,
+				144304F31F208C3200B1535D /* ViewController.h */,
+				144304F41F208C3200B1535D /* ViewController.m */,
+				14DECB0F20A5FE7100B4758D /* Header.h */,
+			);
+			path = DGFormUsage;
+			sourceTree = "<group>";
+		};
+		14C4448A20A33556002A805D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		14DECB0920A34C0300B4758D /* EstimatedHeightTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				140C73521F7A880400B85390 /* EstimatedHeightTableViewCell.h */,
+				140C73531F7A880400B85390 /* EstimatedHeightTableViewCell.m */,
+				140C73541F7A880400B85390 /* EstimatedHeightTableViewCell.xib */,
+				140C735A1F7A89AA00B85390 /* EstimatedHeightTableViewCell+DG.h */,
+				140C735B1F7A89AA00B85390 /* EstimatedHeightTableViewCell+DG.m */,
+				140C73571F7A892300B85390 /* Picture.h */,
+				140C73581F7A892300B85390 /* Picture.m */,
+				14EE4E4C1F7C9E4800FA5980 /* URLSessionManager.h */,
+				14EE4E4D1F7C9E4800FA5980 /* URLSessionManager.m */,
+			);
+			path = EstimatedHeightTableViewCell;
+			sourceTree = "<group>";
+		};
+		14DECB0A20A34C0D00B4758D /* EstimatedHeightTableViewHeaderFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				14EE4E411F7C95CD00FA5980 /* EstimatedHeightTableViewHeaderFooterView.h */,
+				14EE4E421F7C95CD00FA5980 /* EstimatedHeightTableViewHeaderFooterView.m */,
+				14EE4E471F7C95E500FA5980 /* EstimatedHeightTableViewHeaderFooterView.xib */,
+				14EE4E491F7C9B5A00FA5980 /* EstimatedHeightTableViewHeaderFooterView+DG.h */,
+				14EE4E4A1F7C9B5A00FA5980 /* EstimatedHeightTableViewHeaderFooterView+DG.m */,
+			);
+			path = EstimatedHeightTableViewHeaderFooterView;
+			sourceTree = "<group>";
+		};
+		14DECB0B20A34C4800B4758D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				140C734F1F7A85E400B85390 /* EHViewController.h */,
+				140C73501F7A85E400B85390 /* EHViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		14DECB6320A8640F00B4758D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14DECB6720A8640F00B4758D /* DGForm.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		144304EC1F208C3200B1535D /* DGFormUsage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 144305031F208C3200B1535D /* Build configuration list for PBXNativeTarget "DGFormUsage" */;
+			buildPhases = (
+				144304E91F208C3200B1535D /* Sources */,
+				144304EA1F208C3200B1535D /* Frameworks */,
+				144304EB1F208C3200B1535D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DGFormUsage;
+			productName = DGTableViewDataSource;
+			productReference = 144304ED1F208C3200B1535D /* DGFormUsage.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		144304E51F208C3200B1535D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = Daniate;
+				TargetAttributes = {
+					144304EC1F208C3200B1535D = {
+						CreatedOnToolsVersion = 9.0;
+					};
+				};
+			};
+			buildConfigurationList = 144304E81F208C3200B1535D /* Build configuration list for PBXProject "DGFormUsage" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 144304E41F208C3200B1535D;
+			productRefGroup = 144304EE1F208C3200B1535D /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 14DECB6320A8640F00B4758D /* Products */;
+					ProjectRef = 14DECB6220A8640F00B4758D /* DGForm.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				144304EC1F208C3200B1535D /* DGFormUsage */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		14DECB6720A8640F00B4758D /* DGForm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DGForm.framework;
+			remoteRef = 14DECB6620A8640F00B4758D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		144304EB1F208C3200B1535D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14EE4E481F7C95E500FA5980 /* EstimatedHeightTableViewHeaderFooterView.xib in Resources */,
+				144304FD1F208C3200B1535D /* LaunchScreen.storyboard in Resources */,
+				144304FA1F208C3200B1535D /* Assets.xcassets in Resources */,
+				140C73561F7A880400B85390 /* EstimatedHeightTableViewCell.xib in Resources */,
+				144304F81F208C3200B1535D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		144304E91F208C3200B1535D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				140C735C1F7A89AA00B85390 /* EstimatedHeightTableViewCell+DG.m in Sources */,
+				140C73591F7A892300B85390 /* Picture.m in Sources */,
+				14EE4E4E1F7C9E4800FA5980 /* URLSessionManager.m in Sources */,
+				140C73551F7A880400B85390 /* EstimatedHeightTableViewCell.m in Sources */,
+				144304F51F208C3200B1535D /* ViewController.m in Sources */,
+				144305001F208C3200B1535D /* main.m in Sources */,
+				140C73511F7A85E400B85390 /* EHViewController.m in Sources */,
+				144304F21F208C3200B1535D /* AppDelegate.m in Sources */,
+				14EE4E4B1F7C9B5A00FA5980 /* EstimatedHeightTableViewHeaderFooterView+DG.m in Sources */,
+				14EE4E431F7C95CD00FA5980 /* EstimatedHeightTableViewHeaderFooterView.m in Sources */,
+				140C73481F7A6BD700B85390 /* TableViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		144304F61F208C3200B1535D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				144304F71F208C3200B1535D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		144304FB1F208C3200B1535D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				144304FC1F208C3200B1535D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		144305011F208C3200B1535D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		144305021F208C3200B1535D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		144305041F208C3200B1535D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = TUMV96N6ER;
+				INFOPLIST_FILE = "$(SRCROOT)/DGFormUsage/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.daniate.DGFormUsage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		144305051F208C3200B1535D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = TUMV96N6ER;
+				INFOPLIST_FILE = "$(SRCROOT)/DGFormUsage/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.daniate.DGFormUsage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		144304E81F208C3200B1535D /* Build configuration list for PBXProject "DGFormUsage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				144305011F208C3200B1535D /* Debug */,
+				144305021F208C3200B1535D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		144305031F208C3200B1535D /* Build configuration list for PBXNativeTarget "DGFormUsage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				144305041F208C3200B1535D /* Debug */,
+				144305051F208C3200B1535D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 144304E51F208C3200B1535D /* Project object */;
+}
